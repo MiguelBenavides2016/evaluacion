@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Slf4j
-public class FilterConfig extends BasicAuthenticationFilter {
+public class FiltConf extends BasicAuthenticationFilter {
 
-    public FilterConfig(AuthenticationManager authenticationManager) {
+    public FiltConf(AuthenticationManager authenticationManager) {
         super(authenticationManager);
     }
 

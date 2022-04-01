@@ -1,6 +1,6 @@
 package cl.evaluation.config.security;
 
-import cl.evaluation.config.filter.FilterConfig;
+import cl.evaluation.config.filter.FiltConf;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -16,7 +16,7 @@ import static java.util.Arrays.asList;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecConf extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) {
@@ -29,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/", "/index.html", "/authorization/register")
                 .permitAll()
-                .anyRequest().authenticated().and().addFilter(new FilterConfig(authenticationManager()))
+                .anyRequest().authenticated().and().addFilter(new FiltConf(authenticationManager()))
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().csrf().disable();
     }
